@@ -17,8 +17,10 @@ Let's use {{project-id}} with Terraform! Click the Cloud Shell icon below to cop
 to your shell, and then run it from the shell by pressing Enter/Return. Terraform will pick up
 the project name from the environment variable.
 
+Project: <walkthrough-project-id/>
+
 ```bash
-export GOOGLE_CLOUD_PROJECT={{project-id}}
+export GOOGLE_CLOUD_PROJECT=<walkthrough-project-id/>
 ```
 
 After that, let's get Terraform started. Run the following to pull in the providers.
