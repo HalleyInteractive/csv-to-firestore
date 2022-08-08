@@ -7,6 +7,9 @@ Welcome to Terraform in Google Cloud Shell! We need you to let us know what proj
 <walkthrough-project-billing-setup></walkthrough-project-billing-setup>
 
 Terraform provisions real GCP resources, so anything you create in this session will be billed against this project.
+## Cloud Project
+
+<walkthrough-project-setup></walkthrough-project-setup>
 
 ## Terraforming!
 
@@ -27,7 +30,7 @@ terraform init
 With the providers downloaded and a project set, you're ready to use Terraform. Go ahead!
 
 ```bash
-terraform apply
+terraform apply -var-file=example.tfvars
 ```
 
 Terraform will show you what it plans to do, and prompt you to accept. Type "yes" to accept the plan.
