@@ -2,14 +2,13 @@
 
 ## Setup
 
-Welcome to Terraform in Google Cloud Shell! We need you to let us know what project you'd like to use with Terraform.
+Welcome to the deployment tutorial for CSV to Firestore.
 
-<walkthrough-project-billing-setup></walkthrough-project-billing-setup>
-
-Terraform provisions real GCP resources, so anything you create in this session will be billed against this project.
+The CSV to Firestore solution takes a CSV file from a Cloud Storage bucket, parses it and sends it to Firestore. The solution is automatically triggered when a new file is uploaded in the Cloud Storage bucket. In order to serve a variety of applications, the solution allows you to (1) select which cloud bucket to use, (2) specify to which collection to send the data and (3) if you want to use a specific column as document id.
 
 ## Cloud Project
 
+To start we need to select the Google Cloud Project to deploy the solution in. Terraform provisions real GCP resources, so anything you create in this session will be billed against this project.
 <walkthrough-project-setup></walkthrough-project-setup>
 
 Click the Cloud Shell icon below to copy the command to your shell, and then run it from the shell by pressing Enter/Return. Terraform will pick up the project name from the environment variable.
@@ -20,9 +19,9 @@ export GOOGLE_CLOUD_PROJECT=<walkthrough-project-id/>
 
 ## Prepare environment
 
-Let's use <walkthrough-project-id/> with Terraform! 
+Google Cloud Project: <walkthrough-project-id/>
 
-Before we run terraform we need to set a couple of variables, let's open the example.tfvars file and configure them.
+Before we run terraform we need to set a couple of variables, let's open the example.tfvars file and configure them. The file should be open already, if it isn't, click the link below.
 
 <walkthrough-editor-open-file filePath="example.tfvars">Open example.tfvars</walkthrough-editor-open-file>
 
@@ -64,4 +63,12 @@ Terraform will show you what it plans to do, and prompt you to accept. Type "yes
 
 ```bash
 yes
+```
+
+Terraform will now take some time to deploy the solution for you with the configuration specified in the example.tfvars file. Terraform will keep a state in this cloud shell environment, so if you update/change the configuration settings and run terrafom apply command again it will update all resources accordingly.
+
+If you want to remove the deployed resources from Google Cloud Platform again you can run the following command.
+
+```bash
+terraform destroy -var-file=example.tfvars
 ```
